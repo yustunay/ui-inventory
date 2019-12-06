@@ -1,0 +1,46 @@
+<h1>Order List</h1>
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div class="container">
+    <button (click)="connect()" class="btn btn-success" type="button">Scan</button>
+    <button (click)="disconnect()" class="btn btn-warning" type="button">Disconnect</button>
+</div>
+<div class="container">
+    <form (ngSubmit)="!orderForm.invalid && saveTodo()" #orderForm="ngForm">
+        <fieldset class="form-group">
+            <label>Description</label>
+            <input type="text" class="form-control" name="description" #description="ngModel" [(ngModel)]="order.description" required="required" minlength="5">
+        </fieldset>
+        <fieldset class="form-group">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Barcode</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let orderItem of orderItems; let i = index">
+                        <td>
+                            <input [(ngModel)]="orderItem.barcode" class="form-control" type="text"
+                                value="{{orderItem.barcode}}" [ngModelOptions]="{standalone: true}" readonly />
+                        </td>
+                        <td>
+                            <input [(ngModel)]="orderItem.productName" class="form-control" type="text"
+                                value="{{orderItem.productName}}" [ngModelOptions]="{standalone: true}" readonly />
+                        </td>
+                        <td>
+                            <input [(ngModel)]="orderItem.quantity" class="form-control" type="text"
+                                value="{{orderItem.quantity}}" [ngModelOptions]="{standalone: true}"/>
+                        </td>
+                        <td><button (click)="deleteOrder(i)" class="btn btn-danger">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+        <fieldset class="form-group">
+            <button class="btn btn-warning" *ngIf="orderItems!=undefined" [disabled]="orderItems.length==0" type="button">Submit Form</button>
+        </fieldset>
+    </form>
+</div>
