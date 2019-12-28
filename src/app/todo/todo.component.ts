@@ -36,7 +36,7 @@ export class TodoComponent implements OnInit {
 
     console.log(this.id === -1)
 
-    if (this.id == -1) {
+    if (this.id == -1) { //=== when comparing objects... == when comparing primitives...
       this.todoService.createTodo('in28minutes', this.todo)
         .subscribe(
           data => {
