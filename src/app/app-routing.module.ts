@@ -8,6 +8,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { RouteGuardService } from './service/route-guard.service';
 import { TodoComponent } from './todo/todo.component';
 import { OrderComponent } from './order/order.component';
+import { ListProductsComponent } from './list-products/list-products.component';
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:'todos', component:ListTodosComponent, canActivate:[RouteGuardService]},
   {path:'todos/:id', component:TodoComponent, canActivate:[RouteGuardService]},
   {path:'order', component:OrderComponent, canActivate:[RouteGuardService]},
+  {path:'products', component:ListProductsComponent, canActivate:[RouteGuardService]},
 
   {path:'**', component:ErrorComponent}
 ];

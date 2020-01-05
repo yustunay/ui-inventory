@@ -1,13 +1,27 @@
-<h1>Login!</h1>
-<div class="container">
+<div class="text-center">
     <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
-    <div>
+    <!--<div>
         User Name: <input type="text" name="username" [(ngModel)]="username">
         Password: <input type="password" name="password" [(ngModel)]="password">
-
+    -->
         <!-- User Name : {{username}} -->
 
         <!--<button (click)=handleLogin() class="btn btn-success">Login</button>-->
-        <button (click)=handleJWTAuthLogin() class="btn btn-success">Login</button>
-    </div>
+    <!--    <button (click)=handleJWTAuthLogin() class="btn btn-success">Login</button>
+    </div>-->
+    <form class="form-signin">
+        <img class="mb-4" src="../../assets/logo_jarlovein.png" alt="" width="216" height="216">
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <label for="username" class="sr-only">Username</label>
+        <input type="text" name="username" class="form-control" placeholder="Username" [(ngModel)]="username" required autofocus>
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" name="password" class="form-control" placeholder="Password" [(ngModel)]="password" required>
+      <!--  <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div> -->
+        <button (click)=handleJWTAuthLogin() class="btn btn-lg btn-primary btn-block">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+      </form>
 </div>

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TodoComponent } from './todo/todo.component';
 import { OrderComponent } from './order/order.component';
 import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter-basic-auth.service';
+import { ListProductsComponent } from './list-products/list-products.component';
+import { ProductComponent } from './product/product.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -27,13 +30,17 @@ import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter
     FooterComponent,
     LogoutComponent,
     TodoComponent,
-    OrderComponent
+    OrderComponent,
+    ListProductsComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    NgbModule,
+    HttpClientModule,
+    ReactiveFormsModule 
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi: true}
