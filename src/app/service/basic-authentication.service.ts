@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import { API_URL } from '../app.constants';
+import { Constants } from '../app.constants';
 
 export const TOKEN = "token";
 export const AUTHENTICATED_USER = "authenticatedUser";
@@ -34,13 +34,13 @@ export class BasicAuthenticationService {
   }
 
   executeHelloWorldBeanService(){
-    return this.http.get<AuthenticationBean>(`${API_URL}/hello-world-bean`);
+    return this.http.get<AuthenticationBean>(`${Constants.API_URL}/hello-world-bean`);
     //console.log("Execute Hello World Bean Service");
   }
 
   executeJWTAuthenticationService(username, password){
 
-    return this.http.post<any>(`${API_URL}/authenticate`,{
+    return this.http.post<any>(`${Constants.API_URL}/authenticate`,{
       username,
       password
     }).pipe(

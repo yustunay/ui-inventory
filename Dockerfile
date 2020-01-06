@@ -1,8 +1,3 @@
-# JARLOVEIN INVENTORY FRONTEND APPLICATION
-For barcode scanner, (by Kataykin) "QR & Scanner POST & GET request to server" application is used.
-
-## Create a Dockerfile
-```
 # base image
 FROM node:12.14.0
 
@@ -27,14 +22,7 @@ RUN npm install -g @angular/cli@8.3.21
 COPY . /app
 
 # start app
+#CMD ng serve -c dev --host 0.0.0.0 --ssl true --ssl-key /home/vfnet/orbitant/workspace/ssl/config/orbitant.key --ssl-cert /home/vfnet/orbitant/workspace/ssl/config/orbitant.crt
+#CMD ng serve -c dev --host 0.0.0.0 --ssl true --ssl-key /src/keys/orbitant.key --ssl-cert /src/keys/orbitant.crt
+#CMD ng serve -c dev --host 0.0.0.0 --disableHostCheck true
 CMD ng serve -c dev --host 0.0.0.0
-```
-
-## Build The Image From Dockerfile
-```
- docker build -t yustunay/inventory-ui .
-```
-## Run The Container With The Built Image
-```
-docker run -d --name inventory-ui -p 4200:4200 yustunay/inventory-ui:latest
-```

@@ -60,4 +60,12 @@ export class ListProductsComponent implements OnInit {
     });
   }
   
+  updateProduct(id){
+    console.log(`update ${id}`)
+    this.router.navigate(["products",id])
+  }
+
+  addProduct(){
+    this.router.navigate(['products',-1])
+  }
 }

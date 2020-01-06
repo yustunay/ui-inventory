@@ -1,3 +1,9 @@
-export const API_URL = "http://localhost:8000"
-export const TODO_JPA_API_URL = "http://localhost:8000/jpa"
-export const PRODUCT_API_URL = "http://localhost:8000/products"
+import { environment } from '../environments/environment';
+
+export const Constants = {
+    API_URL : environment.api,
+    TODO_JPA_API_URL : environment.api + "/jpa",
+    PRODUCT_API_URL : environment.api + "/products",
+    SOCKET_API_URL : environment.api + "/ws",
+    SOCKET_TOPIC : "/topic/greetings"
+}

@@ -9,6 +9,7 @@ import { RouteGuardService } from './service/route-guard.service';
 import { TodoComponent } from './todo/todo.component';
 import { OrderComponent } from './order/order.component';
 import { ListProductsComponent } from './list-products/list-products.component';
+import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:'todos/:id', component:TodoComponent, canActivate:[RouteGuardService]},
   {path:'order', component:OrderComponent, canActivate:[RouteGuardService]},
   {path:'products', component:ListProductsComponent, canActivate:[RouteGuardService]},
+  {path:'products/:id', component:ProductComponent, canActivate:[RouteGuardService]},
 
   {path:'**', component:ErrorComponent}
 ];

@@ -18,6 +18,8 @@ import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter
 import { ListProductsComponent } from './list-products/list-products.component';
 import { ProductComponent } from './product/product.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { MessagesComponent } from './messages/messages.component';
+import { Constants } from './app.constants';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     TodoComponent,
     OrderComponent,
     ListProductsComponent,
-    ProductComponent
+    ProductComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

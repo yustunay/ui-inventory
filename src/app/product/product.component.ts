@@ -10,7 +10,8 @@ import { Product } from '../list-products/list-products.component';
 })
 export class ProductComponent implements OnInit {
 
-  products : Product[]
+  product: Product
+  id:number
 
   constructor(
     private productService:ProductDataService,
@@ -19,10 +20,38 @@ export class ProductComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.productService.retrieveAllProducts()
-    .subscribe(
-      data => this.products = data
-    )
+    this.id = this.route.snapshot.params['id']
+    this.product = new Product(this.id,'','',0);
+
+    if (this.id != -1) {
+      this.productService.retrieveProduct(this.id)
+        .subscribe(
+          data => this.product = data
+        )
+    }
+  }
+
+  saveProduct() {
+
+    console.log(this.id === -1)
+
+    if (this.id == -1) { //=== when comparing objects... == when comparing primitives...
+      this.productService.createProduct(this.product)
+        .subscribe(
+          data => {
+            console.log(data)
+            this.router.navigate(["products"])
+          }
+        )
+    } else {
+      this.productService.updateProduct(this.id, this.product)
+        .subscribe(
+          data => {
+            console.log(data)
+            this.router.navigate(["products"])
+          }
+        )
+    }
   }
 
 }
